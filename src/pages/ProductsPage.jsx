@@ -3,29 +3,36 @@ import Navbar from "../components/Navbar";
 import ProductCard from "../components/ProductCard";
 
 const Products = () => {
-  const [isLoading, setIsLoading] = useState(true);
   const [products, setProducts] = useState([]);
 
+  console.log(products);
+
   useEffect(() => {
-    fetch("http://localhost:8081/api/products")
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data);
-        setIsLoading(false);
-      });
+    async function fetchProducts() {
+      try {
+        const response = await fetch(
+          "http://localhost:8080/api/sessions/login",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        console.log(response);
+        setProducts(response);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchProducts();
   }, []);
 
   return (
-    <main>
-      {isLoading ? (
-        <h1>Loading...</h1>
-      ) : (
-        <>
-          <Navbar />
-          <ProductCard products={products} />
-        </>
-      )}
-    </main>
+    <>
+      <Navbar />
+      <ProductCard products={products} />
+    </>
   );
 };
 

@@ -18,7 +18,7 @@ function Navbar() {
               <button
                 className="btn btn-link text-decoration-none admin-btn"
                 type="button"
-                onClick="goToAdminPanel()"
+                // onClick="goToAdminPanel()"
               >
                 Admin Panel
               </button>
@@ -53,14 +53,20 @@ function Navbar() {
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <button className="btn dropdown-item" onClick="logout()">
+                  <button
+                    className="btn dropdown-item"
+                    // onClick="logout()"
+                  >
                     <i className="fas fa-sign-out-alt fa-fw"></i>
                     Cerrar sesión
                   </button>
                 </li>
               </ul>
             </li>
-            <button className="btn position-relative" onClick="setCartRoute()">
+            <button
+              className="btn position-relative"
+              // onClick="setCartRoute()"
+            >
               <Link to="" id="cart-route">
                 <i className="fa-solid fa-cart-shopping"></i>
                 <span

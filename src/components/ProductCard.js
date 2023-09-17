@@ -1,15 +1,14 @@
 function ProductCard(products) {
-  console.log(products);
   return (
     <div>
-      <div class="container mt-5 mb-3">
-        <h3 class="fw-normal mb-0 text-black mb-3 text-center text-decoration-underline">
+      <div className="container mt-5 mb-3">
+        <h3 className="fw-normal mb-0 text-black mb-3 text-center text-decoration-underline">
           Listado de productos
         </h3>
-        <nav class="d-flex justify-content-end mb-1 nav-products">
-          <div class="dropdown">
+        <nav className="d-flex justify-content-end mb-1 nav-products">
+          <div className="dropdown">
             <button
-              class="btn dropdown-toggle mb-2 me-3"
+              className="btn dropdown-toggle mb-2 me-3"
               type="button"
               id="dropdownMenuButton1"
               data-bs-toggle="dropdown"
@@ -17,36 +16,36 @@ function ProductCard(products) {
             >
               Filtrar
             </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
               <li>
                 <button
-                  class="dropdown-item"
-                  onclick="filterProductsByCategory ('Audio')"
+                  className="dropdown-item"
+                  // onClick="filterProductsByCategory ('Audio')"
                 >
                   Audio
                 </button>
               </li>
               <li>
                 <button
-                  class="dropdown-item"
-                  onclick="filterProductsByCategory ('Hogar')"
+                  className="dropdown-item"
+                  // onClick="filterProductsByCategory ('Hogar')"
                 >
                   Hogar
                 </button>
               </li>
               <li>
                 <button
-                  class="dropdown-item"
-                  onclick="filterProductsByCategory ('Electronics')"
+                  className="dropdown-item"
+                  // onClick="filterProductsByCategory ('Electronics')"
                 >
                   Electronics
                 </button>
               </li>
             </ul>
           </div>
-          <div class="dropdown">
+          <div className="dropdown">
             <button
-              class="btn dropdown-toggle mb-2"
+              className="btn dropdown-toggle mb-2"
               type="button"
               id="dropdownMenuButton1"
               data-bs-toggle="dropdown"
@@ -54,16 +53,19 @@ function ProductCard(products) {
             >
               Ordenar
             </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
               <li>
-                <button class="dropdown-item" onclick="sortProductsByPrice (1)">
+                <button
+                  className="dropdown-item"
+                  // onClick="sortProductsByPrice (1)"
+                >
                   Menor a mayor
                 </button>
               </li>
               <li>
                 <button
-                  class="dropdown-item"
-                  onclick="sortProductsByPrice (-1)"
+                  className="dropdown-item"
+                  // onClick="sortProductsByPrice (-1)"
                 >
                   Mayor a menor
                 </button>
@@ -71,23 +73,23 @@ function ProductCard(products) {
             </ul>
           </div>
         </nav>
-        {/* <div class="row justify-content-center mb-3">
+        {/* <div className="row justify-content-center mb-3">
       {{#if products}}
         {{#each products}}
-          <div class="col-md-12 col-xl-10 margin">
-            <div class="card shadow-0 border rounded-3">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+          <div className="col-md-12 col-xl-10 margin">
+            <div className="card shadow-0 border rounded-3">
+              <div className="card-body">
+                <div className="row">
+                  <div className="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
                     {{#each thumbnail}}
                       <div
-                        class="bg-image hover-zoom ripple rounded ripple-surface"
+                        className="bg-image hover-zoom ripple rounded ripple-surface"
                       >
-                        <img src={{img1}} class="w-100" />
+                        <img src={{img1}} className="w-100" />
                         <a href="#!">
-                          <div class="hover-overlay">
+                          <div className="hover-overlay">
                             <div
-                              class="mask"
+                              className="mask"
                               style="background-color: rgba(253, 253, 253, 0.15);"
                             ></div>
                           </div>
@@ -95,39 +97,39 @@ function ProductCard(products) {
                       </div>
                     {{/each}}
                   </div>
-                  <div class="col-md-6 col-lg-6 col-xl-6">
+                  <div className="col-md-6 col-lg-6 col-xl-6">
                     <h5>
                       {{title}}
                     </h5>
-                    <div class="d-flex flex-row">
-                      <div class="text-danger mb-1 me-2">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
+                    <div className="d-flex flex-row">
+                      <div className="text-danger mb-1 me-2">
+                        <i className="fa fa-star"></i>
+                        <i className="fa fa-star"></i>
+                        <i className="fa fa-star"></i>
+                        <i className="fa fa-star"></i>
                       </div>
                       <span>
                         310
                       </span>
                     </div>
-                    <div class="mt-1 mb-0 text-muted small">
+                    <div className="mt-1 mb-0 text-muted small">
                       <span>
                         <b>
                           Categoria: {{category}}
                         </b>
                       </span>
                     </div>
-                    <div class="mb-2 text-muted small">
+                    <div className="mb-2 text-muted small">
                       <span>
                         Llega el martes
                       </span>
-                      <span class="text-primary">
+                      <span className="text-primary">
                         •
                       </span>
                       <span>
                         Beneficio Tienda Puntos
                       </span>
-                      <span class="text-primary">
+                      <span className="text-primary">
                         •
                       </span>
                       <span>
@@ -135,34 +137,34 @@ function ProductCard(products) {
                         <br />
                       </span>
                     </div>
-                    <p class="text-truncate mb-4 mb-md-0">
+                    <p className="text-truncate mb-4 mb-md-0">
                       {{description}}
                     </p>
                   </div>
                   <div
-                    class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start"
+                    className="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start"
                   >
-                    <div class="d-flex flex-row align-items-center mb-1">
-                      <h4 class="mb-1 me-1">
+                    <div className="d-flex flex-row align-items-center mb-1">
+                      <h4 className="mb-1 me-1">
                         ${{price}}
                       </h4>
-                      <span class="text-danger">
+                      <span className="text-danger">
                         <s>
                           {{price}}
                         </s>
                       </span>
                     </div>
-                    <h6 class="text-success">
+                    <h6 className="text-success">
                       Envio gratis
                     </h6>
-                    <div class="d-flex flex-column mt-4">
-                      <button class="btn btn-primary btn-sm" type="button">
+                    <div className="d-flex flex-column mt-4">
+                      <button className="btn btn-primary btn-sm" type="button">
                         Detalles
                       </button>
                       <button
-                        class="btn btn-outline-primary btn-sm mt-2"
+                        className="btn btn-outline-primary btn-sm mt-2"
                         type="button"
-                        onclick="addProduct('{{this._id}}')"
+                        onClick="addProduct('{{this._id}}')"
                       >
                         Agregar al carrito
                       </button>

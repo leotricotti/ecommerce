@@ -14,6 +14,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import useLogin from "../hooks/useLogin";
+import Spinner from "../components/Spinner";
 
 function Copyright(props) {
   return (
@@ -42,7 +43,7 @@ const defaultTheme = createTheme({
 });
 
 export default function SignIn() {
-  const [postLogin] = useLogin();
+  const [result, postLogin] = useLogin();
 
   useEffect(() => {
     document.title = "E-Store | Iniciar sesión";
@@ -55,7 +56,9 @@ export default function SignIn() {
     postLogin(userName, password);
   };
 
-  return (
+  return result ? (
+    <Spinner />
+  ) : (
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />

@@ -1,4 +1,5 @@
 import Swall from "sweetalert2";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import withReactContent from "sweetalert2-react-content";
 
@@ -6,11 +7,15 @@ const MySwall = withReactContent(Swall);
 
 export default function useLogin() {
   const navigate = useNavigate();
+  const [result, setResult] = useState(false);
 
   async function postLogin(username, password) {
-    console.log(username, password);
+    if (username && password) {
+      setResult(true);
+    }
+
     try {
-      const response = await fetch("http://localhost:8081/api/sessions/login", {
+      const response = await fetch("http://localhost:8080/api/sessions/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -19,7 +24,10 @@ export default function useLogin() {
       });
 
       if (response.ok) {
-        navigate("/products");
+        setTimeout(() => {
+          setResult(false);
+          navigate("/products");
+        }, 2000);
       }
 
       if (!response.ok) {
@@ -42,6 +50,8 @@ export default function useLogin() {
         return;
       }
 
+      setResult(true);
+
       return result;
     } catch (error) {
       console.error(error);
@@ -49,5 +59,5 @@ export default function useLogin() {
     }
   }
 
-  return [postLogin];
+  return [result, postLogin];
 }
