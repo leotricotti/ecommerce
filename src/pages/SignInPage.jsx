@@ -42,7 +42,7 @@ const defaultTheme = createTheme({
   },
 });
 
-export default function SignIn() {
+export default function SignIn({ onLogin }) {
   const [isLoading, postLogin] = useLogin();
 
   useEffect(() => {

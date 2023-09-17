@@ -52,8 +52,6 @@ export default function useLogin() {
 
       setIsLoading(true);
 
-      console.log(result);
-
       return result;
     } catch (error) {
       console.error(error);

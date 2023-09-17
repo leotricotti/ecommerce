@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import ProductsCard from "../components/ProductsCard";
+import Pagination from "../components/Pagination";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -27,6 +28,7 @@ const Products = () => {
     <>
       <Navbar />
       <ProductsCard products={products} />
+      <Pagination />
     </>
   );
 };
