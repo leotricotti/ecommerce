@@ -10,17 +10,14 @@ const Products = () => {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const response = await fetch(
-          "http://localhost:8080/api/sessions/login",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        console.log(response);
-        setProducts(response);
+        const response = await fetch("http://localhost:8080/api/products", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const data = await response.json();
+        setProducts(data);
       } catch (error) {
         console.log(error);
       }

@@ -7,11 +7,11 @@ const MySwall = withReactContent(Swall);
 
 export default function useLogin() {
   const navigate = useNavigate();
-  const [result, setResult] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   async function postLogin(username, password) {
     if (username && password) {
-      setResult(true);
+      setIsLoading(true);
     }
 
     try {
@@ -25,7 +25,7 @@ export default function useLogin() {
 
       if (response.ok) {
         setTimeout(() => {
-          setResult(false);
+          setIsLoading(false);
           navigate("/products");
         }, 2000);
       }
@@ -50,7 +50,9 @@ export default function useLogin() {
         return;
       }
 
-      setResult(true);
+      setIsLoading(true);
+
+      console.log(result);
 
       return result;
     } catch (error) {
@@ -59,5 +61,5 @@ export default function useLogin() {
     }
   }
 
-  return [result, postLogin];
+  return [isLoading, postLogin];
 }

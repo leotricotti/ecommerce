@@ -43,7 +43,7 @@ const defaultTheme = createTheme({
 });
 
 export default function SignIn() {
-  const [result, postLogin] = useLogin();
+  const [isLoading, postLogin] = useLogin();
 
   useEffect(() => {
     document.title = "E-Store | Iniciar sesión";
@@ -56,7 +56,7 @@ export default function SignIn() {
     postLogin(userName, password);
   };
 
-  return result ? (
+  return isLoading ? (
     <Spinner />
   ) : (
     <ThemeProvider theme={defaultTheme}>

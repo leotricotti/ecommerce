@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../css/navbar.css";
 
-function Navbar() {
+function Navbar(user) {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
@@ -20,7 +20,7 @@ function Navbar() {
                 type="button"
                 // onClick="goToAdminPanel()"
               >
-                Admin Panel
+                {user.first_name}
               </button>
             </div>
             <p className="text-white-50">Bienvenido</p>
