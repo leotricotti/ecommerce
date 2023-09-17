@@ -2,8 +2,6 @@ import React from "react";
 import ProctsNav from "./ProductsNav";
 
 function ProductCard({ products }) {
-  console.log(products.map((product) => product.thumbnail));
-
   return (
     <>
       <ProctsNav />
@@ -15,7 +13,10 @@ function ProductCard({ products }) {
                 <div className="row">
                   <div className="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
                     {product.thumbnail.map((img) => (
-                      <div className="bg-image hover-zoom ripple rounded ripple-surface">
+                      <div
+                        className="bg-image hover-zoom ripple rounded ripple-surface"
+                        key={product._id}
+                      >
                         <img
                           src={img.img1}
                           className="w-100"
@@ -46,7 +47,7 @@ function ProductCard({ products }) {
                         <b>Categoria: {product.category}</b>
                       </span>
                     </div>
-                    <div className="mb-2 text-muted small">
+                    <div className="d-flex gap-2 mb-2 text-muted small">
                       <span>Llega el martes</span>
                       <span className="text-primary">•</span>
                       <span>Beneficio Tienda Puntos</span>
