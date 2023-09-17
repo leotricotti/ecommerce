@@ -1,4 +1,5 @@
 import React from "react";
+import "../css/productsCard.css";
 import ProctsNav from "./ProductsNav";
 
 function ProductCard({ products }) {
