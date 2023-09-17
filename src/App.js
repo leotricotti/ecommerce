@@ -1,6 +1,7 @@
-import SignIn from "./pages/SignIn";
-import SignUp from "./pages/SignUp";
-import Products from "./pages/Products";
+import "./css/app.css";
+import SignIn from "./pages/SignInPage";
+import SignUp from "./pages/SignUpPage";
+import Products from "./pages/ProductsPage";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
