@@ -32,14 +32,19 @@ function Copyright(props) {
   );
 }
 
-// TODO remove, this demo shouldn't need to reset the theme.
-
-const defaultTheme = createTheme();
+const defaultTheme = createTheme({
+  palette: {
+    background: {
+      default: "#eee",
+    },
+  },
+});
 
 export default function SignUp() {
   useEffect(() => {
-    document.title = "Registrate";
+    document.title = "E-Store | Crear cuenta";
   }, []);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -65,7 +70,7 @@ export default function SignUp() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Registrate
+            Crea tu cuenta
           </Typography>
           <Box
             component="form"
@@ -131,7 +136,7 @@ export default function SignUp() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Registrate
+              Crea tu cuenta
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>

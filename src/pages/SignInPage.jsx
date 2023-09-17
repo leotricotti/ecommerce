@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useEffect } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -12,6 +13,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import useLogin from "../hooks/useLogin";
 
 function Copyright(props) {
   return (
@@ -31,18 +33,26 @@ function Copyright(props) {
   );
 }
 
-// TODO remove, this demo shouldn't need to reset the theme.
-
-const defaultTheme = createTheme();
+const defaultTheme = createTheme({
+  palette: {
+    background: {
+      default: "#eee",
+    },
+  },
+});
 
 export default function SignIn() {
+  const [postLogin] = useLogin();
+
+  useEffect(() => {
+    document.title = "E-Store | Iniciar sesión";
+  }, []);
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+    const userName = event.target.email.value;
+    const password = event.target.password.value;
+    postLogin({ userName, password });
   };
 
   return (
@@ -99,7 +109,7 @@ export default function SignIn() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Iniciar sesión
+              Inicia sesión
             </Button>
             <Grid container>
               <Grid item xs>
@@ -109,7 +119,7 @@ export default function SignIn() {
               </Grid>
               <Grid item>
                 <Link href="/signup" variant="body2">
-                  {"Aun no tienes una cuenta? Registrate"}
+                  {"No tienes una cuenta? Registrate"}
                 </Link>
               </Grid>
             </Grid>
