@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
-import ProductCard from "../components/ProductCard";
+import ProductsCard from "../components/ProductsCard";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -28,7 +28,7 @@ const Products = () => {
   return (
     <>
       <Navbar />
-      <ProductCard products={products} />
+      <ProductsCard products={products} />
     </>
   );
 };

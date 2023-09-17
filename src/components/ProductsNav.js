@@ -1,21 +1,14 @@
 import React from "react";
-
-function Title({ title }) {
-  return (
-    <h3 className="fw-normal mb-0 text-black mb-3 text-center text-decoration-underline">
-      {title}
-    </h3>
-  );
-}
+import Title from "./Title";
 
 function ProctsNav() {
   return (
     <div className="container mt-5 mb-3">
       <Title title="Listado de productos" />
-      <nav className="d-flex justify-content-end mb-1 nav-products">
+      <nav className="d-flex justify-content-end  nav-products">
         <div className="dropdown">
           <button
-            className="btn dropdown-toggle mb-2 me-3"
+            className="btn dropdown-toggle  me-3"
             type="button"
             id="dropdownMenuButton1"
             data-bs-toggle="dropdown"
@@ -52,7 +45,7 @@ function ProctsNav() {
         </div>
         <div className="dropdown">
           <button
-            className="btn dropdown-toggle mb-2"
+            className="btn dropdown-toggle "
             type="button"
             id="dropdownMenuButton1"
             data-bs-toggle="dropdown"
