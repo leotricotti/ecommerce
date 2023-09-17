@@ -52,7 +52,7 @@ export default function SignIn() {
     event.preventDefault();
     const userName = event.target.email.value;
     const password = event.target.password.value;
-    postLogin({ userName, password });
+    postLogin(userName, password);
   };
 
   return (

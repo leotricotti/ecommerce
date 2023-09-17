@@ -1,14 +1,16 @@
-import { useState } from "react";
 import Swall from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 import withReactContent from "sweetalert2-react-content";
 
 const MySwall = withReactContent(Swall);
 
-export default function useLogin(username, password) {
-  const [response, setResponse] = useState(null);
-  async function postLogin(user, password) {
+export default function useLogin() {
+  const navigate = useNavigate();
+
+  async function postLogin(username, password) {
+    console.log(username, password);
     try {
-      const response = await fetch("/api/sessions/login", {
+      const response = await fetch("http://localhost:8081/api/sessions/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -16,8 +18,11 @@ export default function useLogin(username, password) {
         body: JSON.stringify({ username, password }),
       });
 
+      if (response.ok) {
+        navigate("/products");
+      }
+
       if (!response.ok) {
-        setResponse(null);
         MySwall.fire({
           icon: "error",
           title: "Oops...",
@@ -36,11 +41,13 @@ export default function useLogin(username, password) {
         });
         return;
       }
+
+      return result;
     } catch (error) {
       console.error(error);
       return null;
     }
   }
 
-  return [response, postLogin];
+  return [postLogin];
 }
