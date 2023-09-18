@@ -51,7 +51,7 @@ export default function useLogin() {
       }
 
       setIsLoading(true);
-
+      localStorage.setItem("user", JSON.stringify(result.data));
       return result;
     } catch (error) {
       console.error(error);
