@@ -10,8 +10,6 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading] = useLogin();
 
-  console.log(isLoading);
-
   function handleLogin() {
     setIsLoggedIn(true);
   }

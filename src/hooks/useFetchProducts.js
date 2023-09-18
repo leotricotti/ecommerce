@@ -1,11 +1,12 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-export default function useFetchProducts({ filter, index }) {
+export default function useFetchProducts() {
   const [products, setProducts] = useState([]);
+  const [filter, setFilter] = useState("page");
+  const [index, setIndex] = useState("1");
 
   useEffect(() => {
     async function fetchProducts() {
-      console.log(filter, index);
       try {
         const response = await fetch(
           `http://localhost:8080/api/products?${filter}=${index}`,
@@ -25,5 +26,5 @@ export default function useFetchProducts({ filter, index }) {
     fetchProducts();
   }, [filter, index]);
 
-  return { products };
+  return { products, setFilter, setIndex };
 }

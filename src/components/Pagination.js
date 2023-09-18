@@ -49,7 +49,7 @@ function Pagination() {
         <li className="page-item">
           <button
             className="page-link"
-            onclick="nextPage('products?page')"
+            // onclick="nextPage('products?page')"
             type="button"
             id="next-page"
           >

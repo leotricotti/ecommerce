@@ -6,6 +6,7 @@ import Pagination from "../components/Pagination";
 
 const Products = () => {
   const { products } = useFetchProducts();
+
   return (
     <>
       <Navbar />

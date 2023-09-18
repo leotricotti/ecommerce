@@ -1,7 +1,15 @@
 import React from "react";
 import Title from "./Title";
+import useFetchProducts from "../hooks/useFetchProducts";
 
 function ProctsNav() {
+  const { setFilter, setIndex } = useFetchProducts();
+
+  function handleClick({ filter, index }) {
+    setFilter(filter);
+    setIndex(index);
+  }
+
   return (
     <div className="container mt-5 mb-3">
       <Title title="Listado de productos" />
@@ -20,7 +28,9 @@ function ProctsNav() {
             <li>
               <button
                 className="dropdown-item"
-                // onClick="filterProductsByCategory ('Audio')"
+                onClick={() =>
+                  handleClick({ filter: "category", index: "Audio" })
+                }
               >
                 Audio
               </button>
