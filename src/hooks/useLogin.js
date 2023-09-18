@@ -1,15 +1,21 @@
 import Swall from "sweetalert2";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import withReactContent from "sweetalert2-react-content";
-
-const MySwall = withReactContent(Swall);
 
 export default function useLogin() {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
 
   async function postLogin(username, password) {
+    if (!username || !password) {
+      Swall.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Usuario o contraseña incorrectos",
+      });
+      return;
+    }
+
     if (username && password) {
       setIsLoading(true);
     }
@@ -31,7 +37,7 @@ export default function useLogin() {
       }
 
       if (!response.ok) {
-        MySwall.fire({
+        Swall.fire({
           icon: "error",
           title: "Oops...",
           text: "Usuario o contraseña incorrectos",
@@ -42,7 +48,7 @@ export default function useLogin() {
       const result = await response.json();
 
       if (!result) {
-        MySwall.fire({
+        Swall.fire({
           icon: "error",
           title: "Oops...",
           text: "Usuario o contraseña incorrectos",

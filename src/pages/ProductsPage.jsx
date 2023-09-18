@@ -9,6 +9,10 @@ const Products = () => {
   const [index, setIndex] = useState("1");
 
   useEffect(() => {
+    document.title = "E-Store | Productos";
+  }, []);
+
+  useEffect(() => {
     async function fetchProducts() {
       try {
         const response = await fetch(

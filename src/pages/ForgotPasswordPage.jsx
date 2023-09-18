@@ -42,19 +42,19 @@ const defaultTheme = createTheme({
   },
 });
 
-export default function SignUp() {
+export default function ForgotPassword() {
   const { postSignup, isLoading } = useSignup();
+
   useEffect(() => {
-    document.title = "E-Store | Crear cuenta";
+    document.title = "E-Store | Recuperar contraseña";
   }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const firstName = event.target.firstName.value;
-    const lastName = event.target.lastName.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
-    postSignup(firstName, lastName, email, password);
+    const repeatPassword = event.target.repeatPassword.value;
+    postSignup(email, password, repeatPassword);
   };
 
   return isLoading ? (
@@ -75,7 +75,7 @@ export default function SignUp() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Crea tu cuenta
+            Recuperar contraseña
           </Typography>
           <Box
             component="form"
@@ -84,27 +84,6 @@ export default function SignUp() {
             sx={{ mt: 3 }}
           >
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="Nombre"
-                  autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Apellido"
-                  name="lastName"
-                  autoComplete="family-name"
-                />
-              </Grid>
               <Grid item xs={12}>
                 <TextField
                   required
@@ -123,6 +102,17 @@ export default function SignUp() {
                   label="Contraseña"
                   type="password"
                   id="password"
+                  autoComplete="new-password"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="repeatPassword"
+                  label="Repetir Contraseña"
+                  type="repeatPassword"
+                  id="repeatPassword"
                   autoComplete="new-password"
                 />
               </Grid>
