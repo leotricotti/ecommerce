@@ -30,9 +30,11 @@ const Products = () => {
     fetchProducts();
   }, [index, filter]);
 
+  const userData = JSON.parse(localStorage.getItem("user"));
+
   return (
     <>
-      <Navbar />
+      <Navbar userData={userData} />
       <ProductsCard
         products={products}
         setFilter={setFilter}

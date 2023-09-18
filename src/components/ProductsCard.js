@@ -9,7 +9,7 @@ function ProductCard({ products, setFilter, setIndex }) {
       {products.map((product) => (
         <div className="row justify-content-center mb-1" key={product._id}>
           <div className="col-md-12 col-xl-10 margin">
-            <div className="card shadow-0 border rounded-3">
+            <div className="card shadow-0 border rounded-3 me-3 ms-3">
               <div className="card-body">
                 <div className="row">
                   <div className="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
