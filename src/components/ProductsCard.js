@@ -2,10 +2,10 @@ import React from "react";
 import "../css/productsCard.css";
 import ProctsNav from "./ProductsNav";
 
-function ProductCard({ products }) {
+function ProductCard({ products, setFilter, setIndex }) {
   return (
     <>
-      <ProctsNav />
+      <ProctsNav setFilter={setFilter} setIndex={setIndex} />
       {products.map((product) => (
         <div className="row justify-content-center mb-1" key={product._id}>
           <div className="col-md-12 col-xl-10 margin">

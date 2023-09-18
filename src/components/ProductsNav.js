@@ -1,13 +1,10 @@
 import React from "react";
 import Title from "./Title";
-import useFetchProducts from "../hooks/useFetchProducts";
 
-function ProctsNav() {
-  const { setFilter, setIndex } = useFetchProducts();
-
-  function handleClick({ filter, index }) {
-    setFilter(filter);
+function ProductsNav({ setFilter, setIndex }) {
+  function handleClick(filter, index) {
     setIndex(index);
+    setFilter(filter);
   }
 
   return (
@@ -28,9 +25,7 @@ function ProctsNav() {
             <li>
               <button
                 className="dropdown-item"
-                onClick={() =>
-                  handleClick({ filter: "category", index: "Audio" })
-                }
+                onClick={() => handleClick("category", "Audio")}
               >
                 Audio
               </button>
@@ -38,7 +33,7 @@ function ProctsNav() {
             <li>
               <button
                 className="dropdown-item"
-                // onClick="filterProductsByCategory ('Hogar')"
+                onClick={() => handleClick("category", "Hogar")}
               >
                 Hogar
               </button>
@@ -46,9 +41,9 @@ function ProctsNav() {
             <li>
               <button
                 className="dropdown-item"
-                // onClick="filterProductsByCategory ('Electronics')"
+                onClick={() => handleClick("category", "Electronics")}
               >
-                Electronics
+                Electronica
               </button>
             </li>
           </ul>
@@ -87,4 +82,4 @@ function ProctsNav() {
   );
 }
 
-export default ProctsNav;
+export default ProductsNav;

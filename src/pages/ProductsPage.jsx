@@ -1,16 +1,43 @@
-import React from "react";
-import useFetchProducts from "../hooks/useFetchProducts";
+import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import ProductsCard from "../components/ProductsCard";
 import Pagination from "../components/Pagination";
 
 const Products = () => {
-  const { products } = useFetchProducts();
+  const [products, setProducts] = useState([]);
+  const [filter, setFilter] = useState("page");
+  const [index, setIndex] = useState("1");
+
+  useEffect(() => {
+    async function fetchProducts() {
+      try {
+        const response = await fetch(
+          `http://localhost:8080/api/products?${filter}=${index}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const data = await response.json();
+        setProducts(data.products);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    fetchProducts();
+  }, [index, filter]);
 
   return (
     <>
       <Navbar />
-      <ProductsCard products={products} />
+      <ProductsCard
+        products={products}
+        setFilter={setFilter}
+        setIndex={setIndex}
+      />
       <Pagination />
     </>
   );

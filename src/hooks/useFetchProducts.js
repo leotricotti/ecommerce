@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function useFetchProducts() {
   const [products, setProducts] = useState([]);
-  const [filter, setFilter] = useState("page");
-  const [index, setIndex] = useState("1");
+  const [filter, setFilter] = useState("");
+  const [index, setIndex] = useState("");
 
   useEffect(() => {
     async function fetchProducts() {
@@ -23,8 +23,9 @@ export default function useFetchProducts() {
         console.log(error);
       }
     }
+
     fetchProducts();
-  }, [filter, index]);
+  }, [index, filter]);
 
   return { products, setFilter, setIndex };
 }
