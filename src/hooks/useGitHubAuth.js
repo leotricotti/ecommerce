@@ -9,7 +9,7 @@ export default function useGitHubAuth() {
     setIsLoading(true);
 
     try {
-      const response = await fetch("http://localhost:8080/api/auth/github");
+      const response = await fetch("http://localhost:8080/api/sessions/github");
 
       const data = await response.json();
 
@@ -17,6 +17,8 @@ export default function useGitHubAuth() {
       navigate("/products");
 
       console.log(data);
+
+      return data;
     } catch (error) {
       console.error(error);
     }

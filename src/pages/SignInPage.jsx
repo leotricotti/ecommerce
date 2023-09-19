@@ -84,7 +84,7 @@ export default function SignIn() {
             <Grid item>
               <SocialNetworkAuth
                 className={"fab fa-github fa-button"}
-                onClick={() => gitHubData}
+                onClick={gitHubData}
               />
             </Grid>
             <Grid item>
