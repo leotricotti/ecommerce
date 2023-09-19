@@ -49,17 +49,17 @@ export default function useForgotPassword() {
 
       console.log(result);
 
-      if (result.ok) {
+      if (result.respuesta === "Contrseña actualizada con éxito") {
         Swal.fire({
           icon: "success",
           title: "Contraseña actualizada con éxito",
           showConfirmButton: false,
           timer: 1800,
         }).then(() => {
-          navigate("/login");
+          navigate("/");
           setTimeout(() => {
             setIsLoading(false);
-            navigate("/login");
+            navigate("/");
           }, 2000);
         });
 
