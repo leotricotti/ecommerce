@@ -15,6 +15,8 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import useLogin from "../hooks/useLogin";
 import Spinner from "../components/Spinner";
+import SocialNetworkButton from "../components/SocialNetworkButton";
+import DividerText from "../components/DividerText";
 
 function Copyright(props) {
   return (
@@ -64,7 +66,7 @@ export default function SignIn() {
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 6,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -74,8 +76,17 @@ export default function SignIn() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Inicia sesión
+            Inicia sesión con...
           </Typography>
+          <Grid container justifyContent={"center"}>
+            <Grid item>
+              <SocialNetworkButton className={"fab fa-github fa-button"} />
+            </Grid>
+            <Grid item>
+              <SocialNetworkButton className={"fab fa-google fa-button"} />
+            </Grid>
+          </Grid>
+          <DividerText />
           <Box
             component="form"
             onSubmit={handleSubmit}
