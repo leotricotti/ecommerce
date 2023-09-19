@@ -4,8 +4,6 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -13,7 +11,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import useSignup from "../hooks/useSignup";
+import useForgotPassword from "../hooks/useForgotPassword";
 import Spinner from "../components/Spinner";
 
 function Copyright(props) {
@@ -43,7 +41,7 @@ const defaultTheme = createTheme({
 });
 
 export default function ForgotPassword() {
-  const { postSignup, isLoading } = useSignup();
+  const { postForgot, isLoading } = useForgotPassword();
 
   useEffect(() => {
     document.title = "E-Store | Recuperar contraseña";
@@ -54,7 +52,7 @@ export default function ForgotPassword() {
     const email = event.target.email.value;
     const password = event.target.password.value;
     const repeatPassword = event.target.repeatPassword.value;
-    postSignup(email, password, repeatPassword);
+    postForgot(email, password, repeatPassword);
   };
 
   return isLoading ? (
@@ -111,17 +109,9 @@ export default function ForgotPassword() {
                   fullWidth
                   name="repeatPassword"
                   label="Repetir Contraseña"
-                  type="repeatPassword"
+                  type="password"
                   id="repeatPassword"
                   autoComplete="new-password"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={
-                    <Checkbox value="allowExtraEmails" color="primary" />
-                  }
-                  label="Quiero recibir novedades por correo electrónico."
                 />
               </Grid>
             </Grid>
@@ -131,7 +121,7 @@ export default function ForgotPassword() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Crea tu cuenta
+              Cambiar contraseña
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
