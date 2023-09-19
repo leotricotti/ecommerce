@@ -15,8 +15,9 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import useLogin from "../hooks/useLogin";
 import Spinner from "../components/Spinner";
-import SocialNetworkButton from "../components/SocialNetworkButton";
+import SocialNetworkAuth from "../components/SocialNetworkAuth";
 import DividerText from "../components/DividerText";
+import useGitHubAuth from "../hooks/useGitHubAuth";
 
 function Copyright(props) {
   return (
@@ -46,6 +47,7 @@ const defaultTheme = createTheme({
 
 export default function SignIn() {
   const [isLoading, postLogin] = useLogin();
+  const { gitHubData } = useGitHubAuth();
 
   useEffect(() => {
     document.title = "E-Store | Iniciar sesión";
@@ -80,10 +82,13 @@ export default function SignIn() {
           </Typography>
           <Grid container justifyContent={"center"}>
             <Grid item>
-              <SocialNetworkButton className={"fab fa-github fa-button"} />
+              <SocialNetworkAuth
+                className={"fab fa-github fa-button"}
+                onClick={() => gitHubData}
+              />
             </Grid>
             <Grid item>
-              <SocialNetworkButton className={"fab fa-google fa-button"} />
+              <SocialNetworkAuth className={"fab fa-google fa-button"} />
             </Grid>
           </Grid>
           <DividerText />

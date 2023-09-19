@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/socialNetworkButton.css";
 
-function GitHubButton({ className, onClick }) {
+function SocialNetworkAuth({ className, onClick }) {
   return (
     <button className="btn btn-block github-button" onClick={onClick}>
       <i className={className}></i>
@@ -9,4 +9,4 @@ function GitHubButton({ className, onClick }) {
   );
 }
 
-export default GitHubButton;
+export default SocialNetworkAuth;

@@ -16,7 +16,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import useSignup from "../hooks/useSignup";
 import Spinner from "../components/Spinner";
 import DividerText from "../components/DividerText";
-import SocialNetworkButton from "../components/SocialNetworkButton";
+import SocialNetworkAuth from "../components/SocialNetworkAuth";
 
 function Copyright(props) {
   return (
@@ -81,10 +81,10 @@ export default function SignUp() {
           </Typography>
           <Grid container justifyContent={"center"}>
             <Grid item>
-              <SocialNetworkButton className={"fab fa-github fa-button"} />
+              <SocialNetworkAuth className={"fab fa-github fa-button"} />
             </Grid>
             <Grid item>
-              <SocialNetworkButton className={"fab fa-google fa-button"} />
+              <SocialNetworkAuth className={"fab fa-google fa-button"} />
             </Grid>
           </Grid>
           <DividerText />
